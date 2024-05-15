@@ -6,8 +6,7 @@ import com.sulaiman.busreservation.Service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 import java.util.List;
 
 
@@ -40,9 +39,9 @@ public class BusController {
     @PutMapping(path="{busNumber}")
     public void updateBus(
             @PathVariable("busNumber") Long busNumber,
-            @PathVariable(required = false) String source,
-            @PathVariable(required = false) String destination,
-            @PathVariable(required = false) String fare
+            @RequestParam(required = false) String source,
+            @RequestParam(required = false) String destination,
+            @RequestParam(required = false) String fare
 
     ) {
         busService.updateBus(busNumber, source, destination,
